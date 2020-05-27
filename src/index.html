@@ -74,7 +74,7 @@
 
         <div class="row justify-content-center">
           <div class="instax-card col-12 col-md-6 col-lg-4 p-3 step">
-            <div class="instax-wrapper">
+            <div class="instax-wrapper" id="ashly-card" data-toggle="modal" data-target="#content-modal">
               <img src="assets/instax/ashly_instax.jpg" 
                 srcset="assets/instax/ashly_instax_small.jpg 400w,
                         assets/instax/ashly_instax.jpg 500w"
@@ -89,7 +89,7 @@
 
 
           <div class="instax-card col-12 col-md-6 col-lg-4 p-3 step">
-            <div class="instax-wrapper">
+            <div class="instax-wrapper" id="jordan-card" data-toggle="modal" data-target="#content-modal">
               <img src="assets/instax/jordan_instax.jpg" 
                 srcset="assets/instax/jordan_instax_small.jpg 400w,
                         assets/instax/jordan_instax.jpg 500w"
@@ -104,7 +104,7 @@
 
 
           <div class="instax-card col-12 col-md-6 col-lg-4 p-3 step">
-            <div class="instax-wrapper">
+            <div class="instax-wrapper" id="zolany-card" data-toggle="modal" data-target="#content-modal">
               <img src="assets/instax/zolany_instax.jpg" 
                 srcset="assets/instax/zolany_instax_small.jpg 400w,
                         assets/instax/zolany_instax.jpg 500w"
@@ -118,7 +118,7 @@
           </div>
 
           <div class="instax-card col-12 col-md-6 col-lg-4 p-3 step">
-            <div class="instax-wrapper">
+            <div class="instax-wrapper" id="javiar-card" data-toggle="modal" data-target="#content-modal">
               <img src="assets/instax/javi_instax.jpg" 
                 srcset="assets/instax/javi_instax_small.jpg 400w,
                         assets/instax/javi_instax.jpg 500w"
@@ -132,7 +132,7 @@
           </div>
 
           <div class="instax-card col-12 col-md-6 col-lg-4 p-3 step">
-            <div class="instax-wrapper">
+            <div class="instax-wrapper" id="kristin-card" data-toggle="modal" data-target="#content-modal">
               <img src="assets/instax/kristin_instax.jpg" 
                 srcset="assets/instax/kristin_instax_small.jpg 400w,
                         assets/instax/kristin_instax.jpg 500w"
@@ -146,10 +146,10 @@
           </div>
 
           <div class="instax-card col-12 col-md-6 col-lg-4 p-3 step">
-            <div class="instax-wrapper">
-              <img src="assets/instax/javi_instax.jpg" 
-                srcset="assets/instax/javi_instax_small.jpg 400w,
-                        assets/instax/javi_instax.jpg 500w"
+            <div class="instax-wrapper" id="maria-card" data-toggle="modal" data-target="#content-modal">
+              <img src="assets/instax/maria_instax.jpg" 
+                srcset="assets/instax/maria_instax_small.jpg 400w,
+                        assets/instax/maria_instax.jpg 500w"
                 sizes="100vw"
                 alt="Javi" class="img-fluid d-block">
               <div class="flash"></div>
@@ -160,6 +160,26 @@
           </div>
 
       </div><!-- close container -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="content-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </article>
 
 
@@ -217,6 +237,45 @@
 
         // setup resize event
         window.addEventListener("resize", scroller.resize);
+
+        // Handle content object
+        let contentObj = {
+          "maria-card": {
+            name: "Maria Prado",
+            writing: "maria-writing.jpg",
+            pics: ["maria-pic1.jpg"]
+          },
+          "ashly-card": {
+            name: "Ashly Sibrian",
+            writing: "ashly-writing.jpg",
+            pics: ["ashly-pic1.jpg", "ashly-pic2.jpg"]
+          },
+          "jordan-card": {
+            name: "Jordan Guadron",
+            writing: "jordan-writing.jpg",
+            pics: ["jordan-pic1.jpg", "jordan-pic2.jpg"]
+          },
+          "zolany-card": {
+            name: "Zolany Guadron",
+            writing: "zolany-writing.jpg",
+            pics: ["zolany-pic1.jpg", "zolany-pic2.jpg"]
+          },
+          "javiar-card": {
+            name: "Javiar Morand",
+            writing: "javi-writing.jpg",
+            pics: ["javi-pic1.jpg", "javi-pic2.jpg"]
+          },
+          "kristin-card": {
+            name: "Kristin Prado",
+            writing: "kristin-writing.jpg",
+            pics: ["kristin-pic1.jpg", "kristin-pic2.jpg"]
+          }
+        }
+
+        $(".instax-wrapper").click(function(){
+          let thisContent = contentObj[$(this).attr("id")];
+          $(".modal-title").text(thisContent.name);
+        });
       });
       
     </script>
