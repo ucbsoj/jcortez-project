@@ -95,3 +95,19 @@ body {
 }
 */
 
+.modal-body img {
+	max-width: 100%;
+}
+
+.pic-flex {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.pic-flex img {
+	flex: 0 0 50%;
+	max-width: calc(50% - 10px);
+	margin-top: 20px;
+}
+

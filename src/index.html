@@ -243,7 +243,7 @@
           "maria-card": {
             name: "Maria Prado",
             writing: "maria-writing.jpg",
-            pics: ["maria-pic1.jpg"]
+            pics: ["maria-pic1.jpg","maria-pic2.jpg"]
           },
           "ashly-card": {
             name: "Ashly Sibrian",
@@ -275,6 +275,16 @@
         $(".instax-wrapper").click(function(){
           let thisContent = contentObj[$(this).attr("id")];
           $(".modal-title").text(thisContent.name);
+
+          // Format html to insert
+          let htmlChunk = '<img class="writing" src="assets/instax/'+thisContent.writing+'" /><div class="pic-flex">';
+          for (let i = 0; i < thisContent.pics.length; i++){
+            htmlChunk += '<img class="pic" src="assets/instax/'+thisContent.pics[i]+'" />';
+          }
+          // Close div
+          htmlChunk += '</div>';
+
+          $(".modal-body").html(htmlChunk);
         });
       });
       
